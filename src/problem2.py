@@ -2,12 +2,13 @@
 Exam 3, problem 2.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  October 2018.
+         their colleagues and Alexander Harris.  October 2018.
 
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import time
 import testing_helper
+import math
 
 
 def main():
@@ -90,9 +91,51 @@ def problem2(sequence):
       :type sequence [list]
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    mx = sequence[0]
+    point = 0
+    for k in range(len(sequence)-1):
+        if math.sqrt((sequence[k]**2)) > math.sqrt((sequence[k+1]**2)):
+            if mx < math.sqrt((sequence[k]**2)):
+                mx = math.sqrt((sequence[k]**2))
+                point = k
+        else:
+            if mx < math.sqrt((sequence[k+1]**2)):
+                mx = math.sqrt((sequence[k+1]**2))
+                point = k+1
+
+    return point
+
+    # max = sequence[0]
+    # value = 0
+    # for k in range(len(sequence)-1):
+    #     if sequence[k] < 0:
+    #         value1 = -(sequence[k])
+    #     else:
+    #         value1 = sequence[k]
+    #
+    #     if sequence[k+1] < 0:
+    #         value2 = -(sequence[k+1])
+    #     else:
+    #         value2 = sequence[k+1]
+    #
+    #     if value1 > value2:
+    #         if max < value1:
+    #             max = sequence[k]
+    #             value = k
+    #     else:
+    #         if max < value2:
+    #             if max < value2:
+    #                 max = sequence[k+1]
+    #                 value = k+1
+    #
+    #
+    #
+    # return value
+
 
 
 ###############################################################################
